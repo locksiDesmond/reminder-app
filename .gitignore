@@ -83,7 +83,10 @@ DerivedData
 
 # Android/IntelliJ
 #
+<<<<<<< HEAD
 app/
+=======
+>>>>>>> 8329738d092e2f09683b3ffd9c9db451dca46bf6
 build/
 .idea
 .gradle
