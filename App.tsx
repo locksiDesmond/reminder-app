@@ -64,18 +64,10 @@ const App = () => {
 
   return (
     <SafeAreaView style={backgroundStyle}>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-            paddingTop: 20,
-          }}>
-          <Text>Hello world</Text>
-        </View>
-      </ScrollView>
+      <StatusBar barStyle="default" />
+      <View>
+        <Text> hello world</Text>
+      </View>
     </SafeAreaView>
   );
 };
