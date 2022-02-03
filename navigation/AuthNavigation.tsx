@@ -8,8 +8,12 @@ const Stack = createNativeStackNavigator();
 const AuthNavigation = () => {
   return (
     <Stack.Navigator>
+      <Stack.Screen
+        name="Home"
+        component={Home}
+        options={{headerStyle: {backgroundColor: 'orange'}}}
+      />
       <Stack.Screen name="List" component={List} />
-      <Stack.Screen name="Home" component={Home} />
     </Stack.Navigator>
   );
 };
