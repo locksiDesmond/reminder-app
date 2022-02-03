@@ -1,7 +1,7 @@
 import React from 'react';
 import {TouchableOpacity, StyleSheet, View, Text} from 'react-native';
 
-interface ListSectionProps {
+export interface ListProps {
   icon?: string;
   title: string;
   count: number;
@@ -9,7 +9,7 @@ interface ListSectionProps {
   onPress: () => void;
 }
 
-const ListSection = (props: ListSectionProps) => {
+const ListSection = (props: ListProps) => {
   return (
     <TouchableOpacity
       onLongPress={() => console.log('long press')}
@@ -32,9 +32,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     borderRadius: 10,
     padding: 8,
-    minWidth: '43%',
-    maxWidth: '45%',
-    marginHorizontal: '2%',
+    minWidth: '45%',
+    maxWidth: '48%',
+    marginRight: '2%',
     marginVertical: '2%',
     justifyContent: 'space-between',
   },
