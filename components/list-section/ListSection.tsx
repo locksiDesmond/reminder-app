@@ -11,7 +11,10 @@ interface ListSectionProps {
 
 const ListSection = (props: ListSectionProps) => {
   return (
-    <TouchableOpacity onPress={props.onPress} style={styles.listSection}>
+    <TouchableOpacity
+      onLongPress={() => console.log('long press')}
+      onPress={props.onPress}
+      style={styles.listSection}>
       <View>
         <View style={[styles.icon, {backgroundColor: props.iconColor}]}></View>
         <Text style={styles.title}>{props.title}</Text>
