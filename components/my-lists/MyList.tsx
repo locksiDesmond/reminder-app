@@ -15,6 +15,7 @@ const MyList = ({navigation}: any) => {
             count={item.count}
             title={item.title}
             key={item.id}
+            icon={item.icon}
             onPress={() =>
               navigation.navigate('List', {id: item.id, type: 'my-list'})
             }

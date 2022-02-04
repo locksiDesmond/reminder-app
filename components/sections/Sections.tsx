@@ -7,13 +7,14 @@ import {lists} from '../../api/index';
 const Sections = ({navigation}: any) => {
   return (
     <View style={styles.container}>
-      {lists.map(({title, count, iconColor, id}) => (
+      {lists.map(({title, icon, count, iconColor, id}) => (
         <ListSection
           onPress={() =>
             navigation.navigate('List', {id, type: 'top-category'})
           }
           key={`${title}-${count}`}
           title={title}
+          icon={icon}
           count={count}
           iconColor={iconColor}
         />

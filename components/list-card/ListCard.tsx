@@ -8,7 +8,7 @@ const ListCard = ({title, icon, iconColor, onPress, count}: ListProps) => {
     <View style={styles.container}>
       <TouchableHighlight onPress={onPress}>
         <View style={styles.list}>
-          <IconWrapper iconColor={iconColor} />
+          <IconWrapper iconName={icon} iconColor={iconColor} />
           <View style={styles.detail}>
             <Text style={styles.title}>{title}</Text>
             <Text style={styles.count}>{count} &nbsp; &gt;</Text>

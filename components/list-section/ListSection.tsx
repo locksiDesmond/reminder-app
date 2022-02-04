@@ -1,5 +1,6 @@
 import React from 'react';
 import {TouchableOpacity, StyleSheet, View, Text} from 'react-native';
+import IconWrapper from '../icon-wrapper/IconWrapper';
 
 export interface ListProps {
   icon?: string;
@@ -16,7 +17,7 @@ const ListSection = (props: ListProps) => {
       onPress={props.onPress}
       style={styles.listSection}>
       <View>
-        <View style={[styles.icon, {backgroundColor: props.iconColor}]}></View>
+        <IconWrapper iconColor={props.iconColor} iconName={props.icon} />
         <Text style={styles.title}>{props.title}</Text>
       </View>
       <View>
