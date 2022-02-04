@@ -7,7 +7,7 @@ const ButtonBottom = () => {
     <View style={styles.container}>
       <TouchableOpacity onPress={() => console.log('first')}>
         <View style={styles.newReminderWrapper}>
-          <IconWrapper />
+          <IconWrapper iconName="plus" iconColor="#1b84fa" />
           <Text style={styles.newReminderText}>New Reminder</Text>
         </View>
       </TouchableOpacity>
@@ -32,13 +32,13 @@ const styles = StyleSheet.create({
     fontSize: 22,
     fontWeight: '600',
     marginLeft: 10,
-    color: '#0000f1',
+    color: '#1887ff',
     textAlign: 'center',
   },
   newList: {
     fontSize: 22,
     fontWeight: '400',
-    color: '#0000f1',
+    color: '#1887ff',
     textAlign: 'center',
   },
 });

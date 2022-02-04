@@ -7,7 +7,7 @@ const EditButton = () => {
       <Text
         style={{
           fontSize: 20,
-          color: '#0000ff',
+          color: '#1887ff',
           textTransform: 'capitalize',
         }}>
         Edit

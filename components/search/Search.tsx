@@ -14,7 +14,7 @@ const Search = () => {
 const styles = StyleSheet.create({
   input: {
     height: 30,
-    backgroundColor: '#e5e5e5',
+    backgroundColor: '#e4e3e8',
     margin: 1,
     padding: 4,
     paddingLeft: 20,

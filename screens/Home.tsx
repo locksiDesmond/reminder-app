@@ -10,15 +10,12 @@ import FeatherIcon from "react-native-vector-icons/Feather";
 
 const Home = ({ navigation }: any) => {
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: "#eeeeee" }}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: "#f2f1f6" }}>
       <Container>
         <Search />
         <Sections navigation={navigation} />
         <MyList navigation={navigation} />
         <ButtonBottom />
-        <Icon name="flag" size={26} color="white" />
-        <Icon name="calendar" size={26} color="white" />
-        <FeatherIcon name={"file-plus"} size={18} color="white" />
       </Container>
     </SafeAreaView>
   );
