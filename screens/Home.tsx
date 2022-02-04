@@ -1,5 +1,6 @@
 import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
+import ButtonBottom from "../components/button-bottom/ButtonBottom";
 import Container from "../components/Container";
 import MyList from "../components/my-lists/MyList";
 import Search from "../components/search/Search";
@@ -11,7 +12,8 @@ const Home = ({ navigation }: any) => {
       <Container>
         <Search />
         <Sections navigation={navigation} />
-        <MyList />
+        <MyList navigation={navigation} />
+        <ButtonBottom />
       </Container>
     </SafeAreaView>
   );

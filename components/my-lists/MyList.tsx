@@ -3,7 +3,7 @@ import {StyleSheet, View, Text, ScrollView, FlatList} from 'react-native';
 import ListCard from '../list-card/ListCard';
 import {lists} from '../../api/index';
 
-const MyList = () => {
+const MyList = ({navigation}: any) => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>My Lists</Text>
@@ -15,7 +15,9 @@ const MyList = () => {
             count={item.count}
             title={item.title}
             key={item.id}
-            onPress={() => console.log('onPress')}
+            onPress={() =>
+              navigation.navigate('List', {id: item.id, type: 'my-list'})
+            }
           />
         )}
         style={styles.lists}
@@ -24,7 +26,7 @@ const MyList = () => {
   );
 };
 const styles = StyleSheet.create({
-  container: {flex: 1, marginBottom: 80},
+  container: {flex: 1, marginBottom: 35},
   title: {
     fontWeight: 'bold',
     fontSize: 24,

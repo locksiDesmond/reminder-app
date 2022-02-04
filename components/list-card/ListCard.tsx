@@ -1,5 +1,6 @@
 import React from 'react';
 import {StyleSheet, View, TouchableHighlight, Text} from 'react-native';
+import IconWrapper from '../icon-wrapper/IconWrapper';
 import {ListProps} from '../list-section/ListSection';
 
 const ListCard = ({title, icon, iconColor, onPress, count}: ListProps) => {
@@ -7,7 +8,7 @@ const ListCard = ({title, icon, iconColor, onPress, count}: ListProps) => {
     <View style={styles.container}>
       <TouchableHighlight onPress={onPress}>
         <View style={styles.list}>
-          <View style={[styles.icon, {backgroundColor: iconColor}]}></View>
+          <IconWrapper iconColor={iconColor} />
           <View style={styles.detail}>
             <Text style={styles.title}>{title}</Text>
             <Text style={styles.count}>{count} &nbsp; &gt;</Text>
