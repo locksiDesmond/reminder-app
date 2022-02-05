@@ -1,11 +1,24 @@
-import React from 'react';
-import {StyleSheet, View, Text, TouchableOpacity} from 'react-native';
+import React, {useState} from 'react';
+import {StyleSheet, View, Text, TouchableOpacity, Modal} from 'react-native';
 import IconWrapper from '../icon-wrapper/IconWrapper';
+import ReminderModalForm from '../reminder-modal/ReminderModalForm';
 
 const ButtonBottom = () => {
+  const [modalVisible, setModalVisible] = useState(false);
+  const handleClick = () => {
+    //    Alert.alert("Modal has closed.");
+    setModalVisible(!modalVisible);
+  };
   return (
     <View style={styles.container}>
-      <TouchableOpacity onPress={() => console.log('first')}>
+      <Modal
+        animationType="slide"
+        transparent={true}
+        visible={modalVisible}
+        onRequestClose={handleClick}>
+        <ReminderModalForm handleClick={handleClick} />
+      </Modal>
+      <TouchableOpacity onPress={() => setModalVisible(true)}>
         <View style={styles.newReminderWrapper}>
           <IconWrapper iconName="plus" iconColor="#1b84fa" />
           <Text style={styles.newReminderText}>New Reminder</Text>
