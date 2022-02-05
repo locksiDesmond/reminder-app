@@ -8,13 +8,11 @@ const IconWrapper = ({
 }: {
   iconName?: string;
   iconColor?: string;
-}) => {
-  return (
-    <View style={[styles.icon, {backgroundColor: iconColor || '#0000f1'}]}>
-      <Icon name={iconName || 'flag'} size={18} color="white" />
-    </View>
-  );
-};
+}) => (
+  <View style={[styles.icon, {backgroundColor: iconColor || '#0000f1'}]}>
+    <Icon name={iconName || 'flag'} size={18} color="white" />
+  </View>
+);
 
 const styles = StyleSheet.create({
   icon: {

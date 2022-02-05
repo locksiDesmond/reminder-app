@@ -4,6 +4,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import Container from "../components/Container";
 import { lists } from "../api/index";
 import NoReminder from "../components/no-reminder/NoReminder";
+import ReminderList from "../components/reminder-list/ReminderList";
 
 const List = ({ route: { params }, navigation }: any) => {
   let item = lists.find((item) => item.id === params?.id);
@@ -15,7 +16,8 @@ const List = ({ route: { params }, navigation }: any) => {
             {item?.title}
           </Text>
         </View>
-        <NoReminder />
+        <ReminderList />
+        {/* <NoReminder /> */}
       </Container>
     </SafeAreaView>
   );
