@@ -1,20 +1,25 @@
 import React from 'react';
-import {StyleSheet, View, TouchableHighlight, Text} from 'react-native';
+import {StyleSheet, View, Text, TouchableOpacity} from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialIcons';
+
 import IconWrapper from '../icon-wrapper/IconWrapper';
 import {ListProps} from '../list-section/ListSection';
 
 const ListCard = ({title, icon, iconColor, onPress, count}: ListProps) => {
   return (
     <View style={styles.container}>
-      <TouchableHighlight onPress={onPress}>
+      <TouchableOpacity onPress={onPress}>
         <View style={styles.list}>
           <IconWrapper iconName={icon} iconColor={iconColor} />
           <View style={styles.detail}>
             <Text style={styles.title}>{title}</Text>
-            <Text style={styles.count}>{count} &nbsp; &gt;</Text>
+            <View style={styles.iconWrapper}>
+              <Text style={styles.count}>{count} &nbsp;</Text>
+              <Icon name="navigate-next" size={24} color="#aaa" />
+            </View>
           </View>
         </View>
-      </TouchableHighlight>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -29,6 +34,11 @@ const styles = StyleSheet.create({
     borderRadius: 40,
     height: 32,
     width: 32,
+  },
+  iconWrapper: {
+    flexDirection: 'row',
+    textAlign: 'center',
+    alignItems: 'center',
   },
   detail: {
     flex: 1,

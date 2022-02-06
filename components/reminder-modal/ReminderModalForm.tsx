@@ -68,6 +68,13 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
     marginTop: 30,
     borderRadius: 8,
+    shadowColor: 'black',
+    shadowOffset: {
+      width: 8,
+      height: -37,
+    },
+    shadowOpacity: 1,
+    shadowRadius: 9,
   },
   titleInput: {
     height: 40,
