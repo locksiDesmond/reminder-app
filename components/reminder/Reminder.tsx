@@ -3,11 +3,11 @@ import {View, TextInput, StyleSheet} from 'react-native';
 import CheckBox from '@react-native-community/checkbox';
 
 interface ReminderProps {
-  title: string;
+  task: string;
   completed: boolean;
 }
 const Reminder = ({data}: {data: ReminderProps}) => {
-  const [state, setState] = useState(data.title);
+  const [state, setState] = useState(data.task);
   const [completed, setCompleted] = useState(data.completed);
 
   const handleCheckBox = () => {

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   View,
   Text,
@@ -8,23 +8,57 @@ import {
 } from 'react-native';
 
 import {OptionCard} from '../option-card/OptionCard';
+import {storeData} from '../../store/index';
 interface ReminderModalFormProps {
-  handleClick: () => void;
+  handleCancel: () => void;
 }
-const ReminderModalForm = ({handleClick}: ReminderModalFormProps) => {
+const ReminderModalForm = ({handleCancel}: ReminderModalFormProps) => {
+  const [title, setTitle] = useState('');
+  const [notes, setNotes] = useState('');
+  const [canSubmit, setCanSubmit] = useState(false);
+  useEffect(() => {
+    if (title) {
+      setCanSubmit(true);
+    }
+  }, [title]);
+  const handleSubmit = async () => {
+    const data = {
+      task: title,
+      notes,
+      completed: false,
+      scheduled: false,
+    };
+    await storeData('Reminder', data);
+    handleCancel();
+  };
   return (
     <View style={styles.container}>
       <View style={styles.spaceBetween}>
-        <TouchableOpacity onPress={handleClick}>
+        <TouchableOpacity onPress={handleCancel}>
           <Text style={[styles.text, styles.blue]}>Cancel</Text>
         </TouchableOpacity>
         <Text style={[styles.text, styles.bold]}>New Reminder</Text>
-        <Text style={[styles.text, styles.disabled, styles.bold]}>Add </Text>
+        <TouchableOpacity onPress={handleSubmit}>
+          <Text
+            style={[styles.text, !canSubmit && styles.disabled, styles.bold]}>
+            Add
+          </Text>
+        </TouchableOpacity>
       </View>
       <View style={styles.inputContainer}>
-        <TextInput style={styles.titleInput} placeholder="Title" />
+        <TextInput
+          onChangeText={setTitle}
+          value={title}
+          style={styles.titleInput}
+          placeholder="Title"
+        />
         <View style={styles.noteInputContainer}>
-          <TextInput style={styles.noteInput} placeholder="Notes" />
+          <TextInput
+            onChangeText={setNotes}
+            value={notes}
+            style={styles.noteInput}
+            placeholder="Notes"
+          />
         </View>
       </View>
 

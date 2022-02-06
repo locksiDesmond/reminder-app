@@ -16,7 +16,7 @@ const ButtonBottom = () => {
         transparent={true}
         visible={modalVisible}
         onRequestClose={handleClick}>
-        <ReminderModalForm handleClick={handleClick} />
+        <ReminderModalForm handleCancel={handleClick} />
       </Modal>
       <TouchableOpacity onPress={() => setModalVisible(true)}>
         <View style={styles.newReminderWrapper}>

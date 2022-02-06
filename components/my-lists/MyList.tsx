@@ -1,9 +1,11 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {StyleSheet, View, Text, ScrollView, FlatList} from 'react-native';
 import ListCard from '../list-card/ListCard';
-import {lists} from '../../api/index';
+import useList from '../../hooks/useLists';
 
 const MyList = ({navigation}: any) => {
+  const {lists} = useList();
+  console.log({lists});
   return (
     <View style={styles.container}>
       <Text style={styles.title}>My Lists</Text>
@@ -15,7 +17,7 @@ const MyList = ({navigation}: any) => {
             count={item.count}
             title={item.title}
             key={item.id}
-            icon={item.icon}
+            icon={item.iconName}
             onPress={() =>
               navigation.navigate('List', {id: item.id, type: 'my-list'})
             }
