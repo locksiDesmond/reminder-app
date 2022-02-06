@@ -19,6 +19,8 @@ const ReminderModalForm = ({handleCancel}: ReminderModalFormProps) => {
   useEffect(() => {
     if (title) {
       setCanSubmit(true);
+    } else {
+      setCanSubmit(false);
     }
   }, [title]);
   const handleSubmit = async () => {
@@ -67,7 +69,7 @@ const ReminderModalForm = ({handleCancel}: ReminderModalFormProps) => {
     </View>
   );
 };
-const styles = StyleSheet.create({
+export const styles = StyleSheet.create({
   container: {
     marginTop: '3%',
     height: '97%',

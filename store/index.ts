@@ -10,24 +10,39 @@ export interface dataProps {
   iconName: string;
   id?: number;
 }
+let cache: {
+  [key: string]: any;
+} = {};
 export const storeData = async (key: string, payload: any) => {
   try {
+    if (key) delete cache[key];
+
     let stored = await getData(key);
-    let length = stored?.length || -1;
     let data = stored || [];
-    data?.push({...payload, id: length + 1, date: new Date()});
+    data?.push({
+      ...payload,
+      id: (data[data.length]?.id || 0) + 1,
+      date: new Date(),
+    });
+
     await AsyncStorage.setItem(key, JSON.stringify(data));
-    await updateListCount('lists', key);
+    if (key !== 'lists') {
+      await updateListCount('lists', key);
+    }
   } catch (error) {
     console.error({error});
   }
 };
 
 export const getData = async (key: string) => {
+  if (cache[key]) {
+    return cache[key];
+  }
   try {
     let data = await AsyncStorage.getItem(key);
     if (data) {
-      return JSON.parse(data);
+      cache[key] = JSON.parse(data);
+      return cache[key];
     }
     return [];
   } catch (error) {
