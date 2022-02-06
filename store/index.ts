@@ -15,7 +15,10 @@ let cache: {
 } = {};
 export const storeData = async (key: string, payload: any) => {
   try {
-    if (key) delete cache[key];
+    if (cache[key]) {
+      console.log('clear-cache');
+      delete cache[key];
+    }
 
     let stored = await getData(key);
     let data = stored || [];
@@ -36,12 +39,14 @@ export const storeData = async (key: string, payload: any) => {
 
 export const getData = async (key: string) => {
   if (cache[key]) {
+    console.log('get-cache');
     return cache[key];
   }
   try {
     let data = await AsyncStorage.getItem(key);
     if (data) {
       cache[key] = JSON.parse(data);
+      console.log('set-cache');
       return cache[key];
     }
     return [];

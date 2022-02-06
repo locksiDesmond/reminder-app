@@ -19,7 +19,10 @@ const MyList = ({navigation}: any) => {
             key={item.id}
             icon={item.iconName}
             onPress={() =>
-              navigation.navigate('List', {id: item.id, type: 'my-list'})
+              navigation.navigate('List', {
+                title: item.title,
+                iconColor: item.iconColor,
+              })
             }
           />
         )}

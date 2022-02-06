@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
   },
   hidden: {
     position: 'absolute',
-    left: 8,
+    left: 2,
     zIndex: 4,
     opacity: 0,
   },
@@ -50,6 +50,7 @@ const styles = StyleSheet.create({
     borderColor: '#e1e2e1',
     borderWidth: 2,
     borderRadius: 40,
+    marginLeft: 4,
     width: 24,
     height: 24,
     alignItems: 'center',

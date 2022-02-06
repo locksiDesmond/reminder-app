@@ -3,7 +3,6 @@ import { View, Text, StyleSheet } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Container from "../components/Container";
 import { lists } from "../api/index";
-import NoReminder from "../components/no-reminder/NoReminder";
 import ReminderList from "../components/reminder-list/ReminderList";
 
 const List = ({ route: { params }, navigation }: any) => {
@@ -12,12 +11,11 @@ const List = ({ route: { params }, navigation }: any) => {
     <SafeAreaView style={{ flex: 1, backgroundColor: "white" }}>
       <Container>
         <View>
-          <Text style={[styles.title, { color: item?.iconColor }]}>
-            {item?.title}
+          <Text style={[styles.title, { color: params?.iconColor }]}>
+            {params?.title}
           </Text>
         </View>
-        <ReminderList />
-        {/* <NoReminder /> */}
+        <ReminderList title={params?.title} />
       </Container>
     </SafeAreaView>
   );

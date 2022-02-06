@@ -5,6 +5,7 @@ const useList = () => {
   const [lists, setLists] = useState<any>([]);
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
+    console.log('re-render');
     const fetchData = async () => {
       let data = await getData('lists');
       if (data) {

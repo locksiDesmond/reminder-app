@@ -117,7 +117,7 @@ export const styles = StyleSheet.create({
     marginLeft: 16,
     borderBottomColor: '#dddddd',
     borderBottomWidth: 1,
-    color: '#222222,',
+    color: '#222222',
     fontSize: 16,
   },
   noteInput: {
