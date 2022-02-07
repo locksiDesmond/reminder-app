@@ -66,3 +66,15 @@ export const updateListCount = async (key: string, value: string) => {
     console.error({error});
   }
 };
+
+export const markAsCompleted = async (key: string, value: string) => {
+  try {
+    let data = await getData(key);
+    let idx = data?.findIndex((item: any) => item.task === value);
+    console.log({idx, data, value, key});
+    data[idx] = {...data[idx], completed: !data[idx].completed};
+    await AsyncStorage.setItem(key, JSON.stringify(data));
+  } catch (error) {
+    console.error({error});
+  }
+};
