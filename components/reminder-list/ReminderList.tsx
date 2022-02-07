@@ -10,9 +10,11 @@ const ReminderList = ({title}: {title: string}) => {
     <>
       {!!lists[0] ? (
         <FlatList
-          data={lists}
+          data={lists.filter((item: any) => !item.completed)}
           style={styles.list}
-          renderItem={({item, index}) => <Reminder key={index} data={item} />}
+          renderItem={({item, index}) => (
+            <Reminder listTitle={title} key={index} data={item} />
+          )}
         />
       ) : (
         <NoReminder />

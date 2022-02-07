@@ -1,17 +1,25 @@
 import React, {useEffect, useState} from 'react';
 import {View, TextInput, StyleSheet} from 'react-native';
 import CheckBox from '@react-native-community/checkbox';
+import {markAsCompleted} from '../../store/index';
 
 interface ReminderProps {
   task: string;
   completed: boolean;
 }
-const Reminder = ({data}: {data: ReminderProps}) => {
+const Reminder = ({
+  data,
+  listTitle,
+}: {
+  data: ReminderProps;
+  listTitle: string;
+}) => {
   const [state, setState] = useState(data.task);
   const [completed, setCompleted] = useState(data.completed);
 
   const handleCheckBox = () => {
     setCompleted(!completed);
+    markAsCompleted(listTitle, state);
   };
   return (
     <View style={styles.container}>
