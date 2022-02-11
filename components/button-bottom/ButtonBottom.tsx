@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import {StyleSheet, View, Text, TouchableOpacity, Modal} from 'react-native';
-import {ListContext} from '../../context/list-context';
 import IconWrapper from '../icon-wrapper/IconWrapper';
 import ListModalForm from '../list-modal/ListModalForm';
 import ReminderModalForm from '../reminder-modal/ReminderModalForm';

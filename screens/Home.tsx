@@ -5,19 +5,16 @@ import Container from "../components/Container";
 import MyList from "../components/my-lists/MyList";
 import Search from "../components/search/Search";
 import Sections from "../components/sections/Sections";
-import NavigationWrapper from "../context/navigation-context";
 
-const Home = ({ navigation }: any) => {
+const Home = () => {
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "#f2f1f6" }}>
-      <NavigationWrapper navigation={navigation}>
-        <Container>
-          <Search />
-          <Sections navigation={navigation} />
-          <MyList navigation={navigation} />
-          <ButtonBottom />
-        </Container>
-      </NavigationWrapper>
+      <Container>
+        <Search />
+        <Sections />
+        <MyList />
+        <ButtonBottom />
+      </Container>
     </SafeAreaView>
   );
 };

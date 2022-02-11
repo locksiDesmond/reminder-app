@@ -1,8 +1,7 @@
 import React from 'react';
 import {StyleSheet, View, Text, TouchableOpacity} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import {useContext} from 'react';
-import {NavigationContext} from '../../context/navigation-context/index';
+import {useNavigation} from '@react-navigation/native';
 
 interface OptionCardProps {
   title: string;
@@ -10,11 +9,11 @@ interface OptionCardProps {
   iconText?: string;
 }
 export const OptionCard = (props: OptionCardProps) => {
-  const {navigation} = useContext(NavigationContext);
+  const {navigate} = useNavigation();
 
   const handlePress = () => {
     props.handlePress?.();
-    navigation?.navigate('Select-List');
+    navigate('Select-List', {});
   };
   return (
     <TouchableOpacity onPress={handlePress} style={styles.container}>

@@ -3,8 +3,10 @@ import {View} from 'react-native';
 import {StyleSheet} from 'react-native';
 import ListSection from '../list-section/ListSection';
 import {lists} from '../../api/index';
+import {useNavigation} from '@react-navigation/native';
 
-const Sections = ({navigation}: any) => {
+const Sections = () => {
+  const navigation = useNavigation();
   return (
     <View style={styles.container}>
       {lists.map(({title, icon, count, iconColor, id}) => (
