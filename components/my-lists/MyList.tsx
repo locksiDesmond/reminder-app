@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from 'react';
-import {StyleSheet, View, Text, ScrollView, FlatList} from 'react-native';
+import React from 'react';
+import {StyleSheet, View, Text, FlatList} from 'react-native';
 import ListCard from '../list-card/ListCard';
 import useList from '../../hooks/useLists';
 import {useNavigation} from '@react-navigation/native';
