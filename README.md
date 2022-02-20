@@ -11,3 +11,6 @@ A React native version of iphone's reminder app. Using localStorage to store dat
 ### How to get started
 
 - clone project
+  ` npm install`
+
+` npm start`
