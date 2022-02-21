@@ -6,13 +6,13 @@ import MyList from "../components/my-lists/MyList";
 import Search from "../components/search/Search";
 import Sections from "../components/sections/Sections";
 
-const Home = ({ navigation }: any) => {
+const Home = () => {
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "#f2f1f6" }}>
       <Container>
         <Search />
-        <Sections navigation={navigation} />
-        <MyList navigation={navigation} />
+        <Sections />
+        <MyList />
         <ButtonBottom />
       </Container>
     </SafeAreaView>

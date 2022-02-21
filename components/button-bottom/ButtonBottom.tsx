@@ -9,8 +9,10 @@ const ButtonBottom = () => {
   const [listModalVisible, setListModalVisible] = useState(false);
   const handleReminderModal = () => {
     setReminderModalVisible(!reminderModalVisible);
+    setListModalVisible(false);
   };
   const handleListModal = () => {
+    setReminderModalVisible(false);
     setListModalVisible(!listModalVisible);
   };
   return (

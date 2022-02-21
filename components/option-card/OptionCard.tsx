@@ -1,14 +1,22 @@
 import React from 'react';
 import {StyleSheet, View, Text, TouchableOpacity} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import {useNavigation} from '@react-navigation/native';
 
 interface OptionCardProps {
   title: string;
+  handlePress?: () => void;
   iconText?: string;
 }
 export const OptionCard = (props: OptionCardProps) => {
+  const {navigate} = useNavigation();
+
+  const handlePress = () => {
+    props.handlePress?.();
+    navigate('Select-List', {});
+  };
   return (
-    <TouchableOpacity style={styles.container}>
+    <TouchableOpacity onPress={handlePress} style={styles.container}>
       <Text style={styles.text}>{props.title}</Text>
       <View style={styles.iconTextContainer}>
         <Text style={styles.iconText}>{props.iconText}</Text>

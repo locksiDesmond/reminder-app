@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import {
   View,
   Text,
@@ -9,6 +9,7 @@ import {
 
 import {OptionCard} from '../option-card/OptionCard';
 import {storeData} from '../../store/index';
+import {ListContext} from '../../context/list-context/index';
 interface ReminderModalFormProps {
   handleCancel: () => void;
 }
@@ -16,6 +17,8 @@ const ReminderModalForm = ({handleCancel}: ReminderModalFormProps) => {
   const [title, setTitle] = useState('');
   const [notes, setNotes] = useState('');
   const [canSubmit, setCanSubmit] = useState(false);
+  const {list} = useContext(ListContext);
+
   useEffect(() => {
     if (title) {
       setCanSubmit(true);
@@ -30,7 +33,8 @@ const ReminderModalForm = ({handleCancel}: ReminderModalFormProps) => {
       completed: false,
       scheduled: false,
     };
-    await storeData('Reminder', data);
+
+    await storeData(list, data);
     handleCancel();
   };
   return (
@@ -63,8 +67,7 @@ const ReminderModalForm = ({handleCancel}: ReminderModalFormProps) => {
           />
         </View>
       </View>
-
-      <OptionCard title="Details" />
+      <OptionCard handlePress={handleCancel} title="Details" />
       <OptionCard title="List" iconText="Reminders" />
     </View>
   );
