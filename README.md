@@ -13,4 +13,7 @@ A React native version of iphone's reminder app. Using localStorage to store dat
 - clone project
   ` npm install`
 
-` npm start`
+- start project
+  plug in an android device and allow debugging.
+  `npm start`.
+- The app will open on your android device
